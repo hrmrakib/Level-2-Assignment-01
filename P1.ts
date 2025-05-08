@@ -77,6 +77,7 @@ function processValue(value: string | number): number {
 // console.log(processValue(45))
 
 // Problem 6:
+
 interface Product {
   name: string;
   price: number;
