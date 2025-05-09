@@ -31,11 +31,6 @@ function concatenateArrays<T>(...arrays: T[][]): T[]{
 const x1 = concatenateArrays<string>(["a", "b"], ["c"]);     
 const x2 = concatenateArrays([1, 2], [3, 4], [5]);  
 
-console.log(x1);
-
-function concatenateArrays<T>(...arrays: T[][]): T[] {
-  return arrays.flat();
-}
 
 class Vehicle {
   private make: string;
