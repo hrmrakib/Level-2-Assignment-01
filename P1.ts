@@ -6,7 +6,6 @@ function formatString(input: string, toUpper?: boolean): string {
   }
 }
 
-// const str = formatString("Hello", false);
 
 function filterByRating(
   items: { title: string; rating: number }[]
@@ -15,13 +14,7 @@ function filterByRating(
   return filtered;
 }
 
-const books = [
-  { title: "Book A", rating: 4.5 },
-  { title: "Book B", rating: 3.2 },
-  { title: "Book C", rating: 5.0 },
-];
 
-// const f = filterByRating(books);
 
 function concatenateArrays<T>(...arrays: T[][]): T[]{
   return arrays.flat();
@@ -58,9 +51,6 @@ class Car extends Vehicle {
   }
 }
 
-// const myCar = new Car("Toyota", 2020, "Corolla");
-// myCar.getInfo();
-// myCar.getModel();
 
 function processValue(value: string | number): number {
   if (typeof value === "string") {
@@ -80,13 +70,6 @@ function getMostExpensiveProduct(products: Product[]): Product | null {
   return products[0] || null;
 }
 
-// const products = [
-//   { name: "Pen", price: 10 },
-//   { name: "Notebook", price: 25 },
-//   { name: "Bag", price: 50 },
-// ];
-
-// const mostExpensiveProduct = getMostExpensiveProduct(products);
 
 enum Day {
   Monday,
@@ -124,5 +107,3 @@ async function squareAsync(n: number): Promise<number> {
   });
 }
 
-// squareAsync(4).then(console.log);
-// squareAsync(-3).catch(console.error);
