@@ -1,4 +1,3 @@
-// Problem 1:
 function formatString(input: string, toUpper?: boolean): string {
   if (toUpper) {
     return input.toLocaleUpperCase();
@@ -8,9 +7,7 @@ function formatString(input: string, toUpper?: boolean): string {
 }
 
 const str = formatString("Hello", false);
-// console.log(str);
 
-// Problem 2:
 function filterByRating(
   items: { title: string; rating: number }[]
 ): { title: string; rating: number }[] {
@@ -25,14 +22,19 @@ const books = [
 ];
 
 const f = filterByRating(books);
-//   console.log(f)
 
-// Problem 3:
-// function concatenateArrays<T>(...arrays: T[][]): T[]{
+// Description: Create a generic function that concatenates multiple arrays of the same type using rest parameters.
 
-// }
+// Function Signature:
 
-// Problem 4:
+// function concatenateArrays<T>(...arrays: T[][]): T[]
+// Example:
+
+// concatenateArrays(["a", "b"], ["c"]);       // Output: ["a", "b", "c"]
+// concatenateArrays([1, 2], [3, 4], [5]);     // Output: [1, 2, 3, 4, 5]
+function concatenateArrays<T>(...arrays: T[][]): T[] {
+  return arrays.flat();
+}
 
 class Vehicle {
   private make: string;
@@ -65,7 +67,6 @@ const myCar = new Car("Toyota", 2020, "Corolla");
 // myCar.getInfo();
 // myCar.getModel();
 
-// Problem 5:
 function processValue(value: string | number): number {
   if (typeof value === "string") {
     return value.length;
@@ -74,17 +75,14 @@ function processValue(value: string | number): number {
   }
 }
 
-// console.log(processValue(45))
-
-// Problem 6:
-
 interface Product {
   name: string;
   price: number;
 }
 
 function getMostExpensiveProduct(products: Product[]): Product | null {
- products.filter((product)=> Math.max(product.price))
+  products.sort((a, b) => b.price - a.price);
+  return products[0] || null;
 }
 
 const products = [
@@ -93,5 +91,43 @@ const products = [
   { name: "Bag", price: 50 },
 ];
 
-getMostExpensiveProduct(products);
-// Output: { name: "Bag", price: 50 }
+const mostExpensiveProduct = getMostExpensiveProduct(products);
+
+enum Day {
+  Monday,
+  Tuesday,
+  Wednesday,
+  Thursday,
+  Friday,
+  Saturday,
+  Sunday,
+}
+
+function getDayType(day: Day): string {
+  if (
+    day === Day.Monday ||
+    day === Day.Tuesday ||
+    day === Day.Wednesday ||
+    day === Day.Thursday ||
+    day === Day.Friday
+  ) {
+    return "Weekday";
+  } else {
+    return "Weekend";
+  }
+}
+
+async function squareAsync(n: number): Promise<number> {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (n < 0) {
+        reject(new Error("Negative number not allowed"));
+      } else {
+        resolve(n * n);
+      }
+    }, 1000);
+  });
+}
+
+squareAsync(4).then(console.log);
+squareAsync(-3).catch(console.error);
